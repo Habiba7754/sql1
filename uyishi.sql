@@ -36,7 +36,7 @@ INSERT INTO sales VALUES (18, 'Pen', 'Stationery', 2, 25, '2025-01-02');
 INSERT INTO sales VALUES (19, 'Marker', 'Stationery', 4, 12, '2025-01-03');
 INSERT INTO sales VALUES (20, 'Folder', 'Stationery', 6, 8, '2025-01-04');
 
--- 1.
+-- 1
 select category, sum(quantity) from sales group by category;
 +-------------+---------------+
 | category    | sum(quantity) |
@@ -48,7 +48,7 @@ select category, sum(quantity) from sales group by category;
 | Stationery  |            55 |
 +-------------+---------------+
 
--- 2.
+-- 2
 select category, sum(price * quantity) from sales group by category;
 +-------------+-----------------------+
 | category    | sum(price * quantity) |
@@ -60,7 +60,7 @@ select category, sum(price * quantity) from sales group by category;
 | Stationery  |                   196 |
 +-------------+-----------------------+
 
--- 3.
+-- 3
 select category, avg(price) from sales group by category;
 +-------------+------------+
 | category    | avg(price) |
@@ -72,7 +72,7 @@ select category, avg(price) from sales group by category;
 | Stationery  |     4.2500 |
 +-------------+------------+
 
--- 4.
+-- 4
 select sale_date, sum(price * quantity) from sales group by sale_date;
 +------------+-----------------------+
 | sale_date  | sum(price * quantity) |
@@ -83,7 +83,7 @@ select sale_date, sum(price * quantity) from sales group by sale_date;
 | 2025-01-04 |                  1348 |
 +------------+-----------------------+
 
--- 5.
+-- 5
 select sum(price * quantity) from sales where category = 'Electronics';
 +-----------------------+
 | sum(price * quantity) |
@@ -91,7 +91,7 @@ select sum(price * quantity) from sales where category = 'Electronics';
 |                  5050 |
 +-----------------------+
 
--- 6.
+-- 6
 select category, sum(price * quantity) from sales group by category having sum(price * quantity) > 2000;
 +-------------+-----------------------+
 | category    | sum(price * quantity) |
@@ -100,7 +100,7 @@ select category, sum(price * quantity) from sales group by category having sum(p
 | Furniture   |                  2800 |
 +-------------+-----------------------+
 
--- 7.
+-- 7
 select category, avg(price) from sales group by category having avg(price) > 100;
 +-------------+------------+
 | category    | avg(price) |
@@ -109,7 +109,7 @@ select category, avg(price) from sales group by category having avg(price) > 100
 | Furniture   |   625.0000 |
 +-------------+------------+
 
--- 8.
+-- 8
 select sum(quantity) from sales where sale_date = '2025-01-01';
 +---------------+
 | sum(quantity) |
@@ -117,7 +117,7 @@ select sum(quantity) from sales where sale_date = '2025-01-01';
 |            42 |
 +---------------+
 
--- 9.
+-- 9
 select category, sum(quantity) from sales group by category order by sum(quantity) desc limit 1;
 +------------+----------------+
 | category   | total_quantity |
@@ -125,7 +125,7 @@ select category, sum(quantity) from sales group by category order by sum(quantit
 | Stationery |             55 |
 +------------+----------------+
 
--- 10.
+-- 10
 select category, sum(price * quantity) from sales where quantity > 3 group by category;
 +-------------+-----------------------+
 | category    | sum(price * quantity) |
